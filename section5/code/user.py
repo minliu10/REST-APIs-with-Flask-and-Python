@@ -6,8 +6,8 @@ class User:
         self.username = username
         self.password = password
     
-   
-    def find_by_username(self, username): 
+    @classmethod
+    def find_by_username(cls, username):  # without @classmethod here's self
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
@@ -17,7 +17,7 @@ class User:
         row = result.fetchone() # fetch only the first row of the result set
 
         if row:  # == if row is not None
-            user = User(row[0], row[1], row[2])  
+            user = cls(row[0], row[1], row[2])  # without @classmethod cls is User
         else:
             user = None
 

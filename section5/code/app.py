@@ -3,6 +3,7 @@ from flask_restful import Resource, Api, reqparse # reqparse不是restful的一�
 from flask_jwt import JWT, jwt_required
 
 from security import authenticate, identity
+from user import UserRegister
 
 app = Flask(__name__)
 app.secret_key = 'joes'
@@ -88,4 +89,5 @@ class ItemList(Resource):
 # to tell api this resource we created(Student) now is accessible via our API
 api.add_resource(Item, '/item/<string:name>')  # http://127.0.0.1:5000/item/Rolf
 api.add_resource(ItemList, '/items')
+api.add_resource(UserRegister, '/register')
 app.run(port=5000, debug=True)

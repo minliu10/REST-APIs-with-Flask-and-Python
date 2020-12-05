@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_restful import Apicd
+from flask_restful import Api
 from flask_jwt import JWT, jwt_required
 
 from security import authenticate, identity

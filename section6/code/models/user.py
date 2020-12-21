@@ -1,12 +1,18 @@
 import sqlite3
+from db import db
 
-class UserModel():
-    TABLE_NAME = 'users'
+class UserModel(db.Model):
+    __tablebane__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80)) # 80 character maximum
+    password = db.Column(db.String(80))
 
     def __init__(self, _id, username, password):
         self.id = _id
         self.username = username
         self.password = password
+        self.something = "hi"
 
     @classmethod
     def find_by_username(cls, username):

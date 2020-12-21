@@ -2,6 +2,7 @@ import sqlite3
 from db import db
 
 class UserModel(db.Model):
+    TABLE_NAME = 'users'
     __tablebane__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -12,7 +13,6 @@ class UserModel(db.Model):
         self.id = _id
         self.username = username
         self.password = password
-        self.something = "hi"
 
     @classmethod
     def find_by_username(cls, username):

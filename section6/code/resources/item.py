@@ -11,7 +11,6 @@ class Item(Resource):
         help="This field cannot be left blank!"
     )
 
-    parser = reqparse.RequestParser()
     parser.add_argument('store_id',
         type=int,
         required=True,
@@ -31,7 +30,7 @@ class Item(Resource):
 
         data = Item.parser.parse_args()
 
-        item = ItemModel(name, data['price'], data['store_id'])
+        item = ItemModel(name, **data)
 
         try:
             item.save_to_db()

@@ -1,10 +1,10 @@
 # REST-APIs-with-Flask-and-Python
 
 ## Installation 
-...
-pip install Flask
+'''
+pip install Flask  
 python app.py
-...
+'''
 
 ## Description
 
